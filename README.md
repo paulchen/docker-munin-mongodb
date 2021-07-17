@@ -28,7 +28,7 @@ docker build docker-munin-mongodb
 When running the image, make sure to connect port `27017` to your running MongoDB and to expose port `4949`.
 
 As this image was created having instances of MongoDB and [Rocket.Chat](https://rocket.chat/) in mind that are run via Docker
-(see <https://docs.rocket.chat/installing-and-updating/docker-containers/systemd>), the command to run the image might look like this:
+(see <https://docs.rocket.chat/installing-and-updating/docker-containers/systemd>), the command to run the image might look like this (which will wire port `4949` from the image to port `4950` on the host):
 
 `docker run --name docker-munin-mongodb --link mongo:mongo --net=rocketchat_default -p 127.0.0.1:4950:4949 -p [::1]:4950:4949 paulchen/docker-munin-mongodb:latest`
 
@@ -65,3 +65,4 @@ ExecStop=-/usr/bin/docker rm docker-munin-mongodb
 WantedBy=multi-user.target
 ```
 
+Configure your instance of Munin to connect to the exported port `4950` as a new host.
