@@ -17,7 +17,7 @@ ADD munin-node /etc/munin/plugin-conf.d
 ADD docker-entrypoint.sh /root
 
 RUN git clone https://github.com/munin-monitoring/contrib /opt/munin-contrib
-RUN ln -sf /opt/munin-contrib/plugins/mongodb/mongodb_conn /opt/munin-contrib/plugins/mongodb/mongodb_docs /etc/munin/plugins/
+RUN ln -sf /opt/munin-contrib/plugins/mongodb/mongodb_conn /opt/munin-contrib/plugins/mongodb/mongodb_docs /opt/munin-contrib/plugins/mongodb/mongodb_multi /etc/munin/plugins/
 
 CMD /root/docker-entrypoint.sh
 

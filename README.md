@@ -9,13 +9,14 @@ Docker image for providing [MongoDB](https://www.mongodb.com/) statistics to [Mu
 * Enabled plugins:
   * [mongodb_conn](https://github.com/munin-monitoring/contrib/blob/master/plugins/mongodb/mongodb_conn)
   * [mongodb_docs](https://github.com/munin-monitoring/contrib/blob/master/plugins/mongodb/mongodb_docs) 
+  * [mongodb_multi](https://github.com/munin-monitoring/contrib/blob/master/plugins/mongodb/mongodb_multi) 
   * More plugins might follow in the future.
 
 ## How to build
 
 ```
 git clone https://github.com/paulchen/docker-munin-mongodb.git
-docker build docker-munin-mongodb
+docker build docker-munin-mongodb -t docker-munin-mongodb
 ```
 
 ## Connectivity
@@ -30,7 +31,7 @@ When running the image, make sure to connect port `27017` to your running MongoD
 As this image was created having instances of MongoDB and [Rocket.Chat](https://rocket.chat/) in mind that are run via Docker
 (see <https://docs.rocket.chat/installing-and-updating/docker-containers/systemd>), the command to run the image might look like this:
 
-`docker run --name docker-munin-mongodb --link mongo:mongo --net=rocketchat_default -p 127.0.0.1:4950:4949 -p [::1]:4950:4949 paulchen/docker-munin-mongodb:latest`
+`docker run --name docker-munin-mongodb --link mongo:mongo --net=rocketchat_default -p 127.0.0.1:4950:4949 -p [::1]:4950:4949 docker-munin-mongodb:latest`
 
 A complete systemd unit file might look like this:
 
@@ -56,7 +57,7 @@ ExecStart=/usr/bin/docker run \
     --net=rocketchat_default \
     -p 127.0.0.1:4950:4949 \
     -p [::1]:4950:4949 \
-    paulchen/docker-munin-mongodb:latest
+    docker-munin-mongodb:latest
 
 ExecStop=-/usr/bin/docker stop docker-munin-mongodb
 ExecStop=-/usr/bin/docker rm docker-munin-mongodb
@@ -64,4 +65,7 @@ ExecStop=-/usr/bin/docker rm docker-munin-mongodb
 [Install]
 WantedBy=multi-user.target
 ```
+
+Both the above `docker run` command and the systemd unit will wire the image's port `4949` to `localhost:4950`.
+Configure your instance of Munin to connect to that port.
 
