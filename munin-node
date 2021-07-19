@@ -1,3 +1,9 @@
 [mongodb_*]
 env.MONGO_DB_URI mongodb://mongo:27017
 env.uri mongodb://mongo:27017
+
+[mongo_*]
+env.HOST mongo
+env.PORT 27017
+env.DB rocketchat
+

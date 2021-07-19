@@ -5,11 +5,20 @@ Docker image for providing [MongoDB](https://www.mongodb.com/) statistics to [Mu
 ## What's inside
 
 * Ubuntu 21.04 "Hirsute Hippo" (base image)
-* Munin plugins from [munin-monitoring/contrib](https://github.com/munin-monitoring/contrib)
+* Munin plugins from various sources
 * Enabled plugins:
-  * [mongodb_conn](https://github.com/munin-monitoring/contrib/blob/master/plugins/mongodb/mongodb_conn)
-  * [mongodb_docs](https://github.com/munin-monitoring/contrib/blob/master/plugins/mongodb/mongodb_docs) 
-  * [mongodb_multi](https://github.com/munin-monitoring/contrib/blob/master/plugins/mongodb/mongodb_multi) 
+  * From [munin-monitoring/contrib](https://github.com/munin-monitoring/contrib):
+    * [mongodb_conn](https://github.com/munin-monitoring/contrib/blob/master/plugins/mongodb/mongodb_conn)
+    * [mongodb_docs](https://github.com/munin-monitoring/contrib/blob/master/plugins/mongodb/mongodb_docs) 
+    * [mongodb_multi](https://github.com/munin-monitoring/contrib/blob/master/plugins/mongodb/mongodb_multi) 
+  * From [paulchen/mongomon](https://github.com/paulchen/mongomon):
+    * [mongo_collcount](https://github.com/paulchen/mongomon/blob/master/mongo_collcount)
+    * [mongo_collcount_alldb](https://github.com/paulchen/mongomon/blob/master/mongo_collcount_alldb)
+    * [mongo_collsize](https://github.com/paulchen/mongomon/blob/master/mongo_collsize)
+    * [mongo_collsize_alldb](https://github.com/paulchen/mongomon/blob/master/mongo_collsize_alldb)
+    * [mongo_indexsize](https://github.com/paulchen/mongomon/blob/master/mongo_indexsize)
+    * [mongo_indexsize_alldb](https://github.com/paulchen/mongomon/blob/master/mongo_indexsize_alldb)
+    * [mongo_storagesize_alldb](https://github.com/paulchen/mongomon/blob/master/mongo_storagesize_alldb)
   * More plugins might follow in the future.
 
 ## How to build
