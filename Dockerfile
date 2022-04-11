@@ -1,4 +1,4 @@
-FROM ubuntu:hirsute
+FROM ubuntu:impish
 
 RUN apt-get update
 RUN apt-get -y dist-upgrade
