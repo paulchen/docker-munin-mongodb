@@ -1,4 +1,4 @@
-FROM ubuntu:impish
+FROM ubuntu:jammy
 
 RUN apt-get update
 RUN apt-get -y dist-upgrade
