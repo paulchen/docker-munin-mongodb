@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:kinetic
 
 RUN apt-get update
 RUN apt-get -y dist-upgrade
