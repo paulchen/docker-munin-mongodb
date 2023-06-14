@@ -1,4 +1,4 @@
-FROM ubuntu:kinetic
+FROM ubuntu:lunar
 
 RUN apt-get update
 RUN apt-get -y dist-upgrade
