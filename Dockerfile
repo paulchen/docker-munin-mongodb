@@ -1,4 +1,4 @@
-FROM ubuntu:lunar
+FROM ubuntu:mantic
 
 RUN apt-get update
 RUN apt-get -y dist-upgrade
