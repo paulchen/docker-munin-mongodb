@@ -7,7 +7,7 @@ RUN apt-get -y purge $(dpkg -l | grep '^rc' | awk '{print $2}')
 RUN apt-get clean
 
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get -y install munin-node python3 python3-pymongo
+RUN apt-get -y install munin-node python3 python3-pymongo monitoring-plugins-basic
 
 RUN rm -rf /etc/munin
 RUN mkdir /etc/munin /etc/munin/plugin-conf.d /etc/munin/plugins
@@ -34,6 +34,8 @@ RUN ln -sf \
 	/opt/mongomon/mongo_indexsize_alldb \
 	/opt/mongomon/mongo_storagesize_alldb \
 	/etc/munin/plugins/
+
+HEALTHCHECK --interval=5m --timeout=10s CMD /usr/lib/nagios/plugins/check_tcp -H localhost -p 4949 || exit 1
 
 CMD /root/docker-entrypoint.sh
 
