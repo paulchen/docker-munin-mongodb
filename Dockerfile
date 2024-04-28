@@ -1,4 +1,4 @@
-FROM ubuntu:mantic
+FROM ubuntu:noble
 
 RUN apt-get update
 RUN apt-get -y dist-upgrade
