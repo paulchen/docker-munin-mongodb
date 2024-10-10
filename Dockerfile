@@ -1,4 +1,4 @@
-FROM ubuntu:noble
+FROM ubuntu:oracular
 
 RUN apt-get update
 RUN apt-get -y dist-upgrade

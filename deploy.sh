@@ -6,7 +6,7 @@ cd "$SCRIPT_DIR"
 
 git pull || exit 1
 
-docker pull ubuntu:noble || exit 1
+docker pull ubuntu:oracular || exit 1
 
 docker build . -t docker-munin-mongodb --no-cache || exit 1
 

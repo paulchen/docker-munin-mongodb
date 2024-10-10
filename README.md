@@ -4,7 +4,7 @@ Docker image for providing [MongoDB](https://www.mongodb.com/) statistics to [Mu
 
 ## What's inside
 
-* Ubuntu 21.04 "Hirsute Hippo" (base image)
+* Ubuntu 24.10 "Oracular Oriole" (base image)
 * Munin plugins from various sources
 * Enabled plugins:
   * From [munin-monitoring/contrib](https://github.com/munin-monitoring/contrib):
