@@ -1,9 +1,9 @@
 [mongodb_*]
-env.MONGO_DB_URI mongodb://mongo:27017
-env.uri mongodb://mongo:27017
+env.MONGO_DB_URI mongodb://mongo:27017/?directConnection=true
+env.uri mongodb://mongo:27017/?directConnection=true
 
 [mongo_*]
-env.HOST mongo
+env.HOST mongodb://mongo:27017/?directConnection=true
 env.PORT 27017
 env.DB rocketchat
 
