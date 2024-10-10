@@ -37,5 +37,5 @@ RUN ln -sf \
 
 HEALTHCHECK --interval=5m --timeout=10s CMD /usr/lib/nagios/plugins/check_tcp -H localhost -p 4949 || exit 1
 
-CMD /root/docker-entrypoint.sh
+CMD [ "/root/docker-entrypoint.sh" ]
 
