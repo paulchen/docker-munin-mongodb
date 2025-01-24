@@ -1,5 +1,9 @@
 #!/bin/bash
 
 service munin-node start
-tail -F /var/log/munin/munin-node.log
+
+trap 'killall tail' SIGTERM
+
+tail -F /var/log/munin/munin-node.log &
+wait $!
 
