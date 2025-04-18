@@ -1,4 +1,4 @@
-FROM ubuntu:oracular
+FROM ubuntu:plucky
 
 RUN apt-get update && \
 	apt-get -y dist-upgrade && \
