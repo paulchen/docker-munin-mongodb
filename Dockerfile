@@ -1,4 +1,4 @@
-FROM ubuntu:plucky
+FROM ubuntu:questing
 
 RUN apt-get update && \
 	apt-get -y dist-upgrade && \
