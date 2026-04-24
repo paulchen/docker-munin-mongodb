@@ -1,4 +1,4 @@
-FROM ubuntu:questing
+FROM ubuntu:resolute
 
 RUN apt-get update && \
 	apt-get -y dist-upgrade && \
